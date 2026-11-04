@@ -11,7 +11,7 @@
 <meta property="og:title" content="Dennis Tomak">
 <meta property="og:description" content="Computer science student at the University of Illinois Urbana-Champaign. Backend, data, and systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#EDF0EB; --ink:#17211C; --muted:#56635C; --line:#B9C4BC; --accent:#1F5F8B; --chip:#DFE5DF;
@@ -26,19 +26,20 @@
 }
 :root[data-theme="dark"]{--bg:#0E1618;--ink:#DDE7E4;--muted:#93A39E;--line:#2C3D40;--accent:#7FC4E8;--chip:#17262A;color-scheme:dark}
 *,*::before,*::after{box-sizing:inherit}
-html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 3.4rem);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
 a{color:var(--accent);text-underline-offset:3px}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 .wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
-header.hero{padding-top:clamp(3rem,10vw,6rem)}
-h1{font:800 clamp(2.8rem,9vw,5.5rem)/0.95 var(--display);letter-spacing:-0.03em;margin:0 0 1.25rem}
+
+h1{font:700 clamp(2.2rem,8vw,4.75rem)/1.05 "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;letter-spacing:-0.02em;white-space:nowrap;margin:0 0 1.25rem}
 .lede{font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.45;max-width:36em;margin:0 0 1.5rem}
 .links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:0;padding:0;list-style:none;font-weight:500}
-.ridge{display:block;width:100%;height:clamp(130px,24vw,230px);margin-top:2.5rem}
+
 main section{padding:3rem 0 .5rem;border-top:1px solid var(--line)}
 main section:first-of-type{border-top:0;padding-top:1.5rem}
-h2{font:700 1.6rem/1.2 var(--display);letter-spacing:-0.01em;margin:0 0 1.75rem}
+h2{display:flex;align-items:center;gap:.6rem;font:700 1.6rem/1.2 var(--display);letter-spacing:-0.01em;margin:0 0 1.75rem}
+.ico{width:1.5rem;height:1.5rem;flex:none;color:var(--accent);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 h3{font:600 1.15rem/1.3 var(--display);margin:0}
 .item{display:grid;grid-template-columns:10.5rem 1fr;gap:.25rem 2rem;margin-bottom:2.25rem}
 .when{color:var(--muted);font-size:.95rem;padding-top:.2rem}
@@ -71,24 +72,67 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 dialog img{display:block;width:100%;height:auto}
 dialog .close{position:sticky;top:0;float:right;font:600 .9rem var(--body);background:var(--chip);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:.3rem .7rem;cursor:pointer;margin:0 0 .5rem .5rem}
 @media (max-width:640px){.research{grid-template-columns:1fr}.trio{grid-template-columns:1fr 1fr 1fr}}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at 25% 15%,#143647 0%,#0a161c 55%,#060d11 100%)}
+.bg canvas{display:block;width:100%;height:100%}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,13,17,0) 30%,rgba(6,13,17,.55))}
+header.hero{min-height:80vh;min-height:80svh;display:flex;align-items:flex-end;padding:6rem 0 3.5rem;color:#F2F6F4}
+header.hero .wrap{width:100%}
+header.hero a{color:#BFE3F5}
+header.hero .links{margin-top:.25rem}
+.sheet{position:relative;background:var(--bg);border-radius:22px 22px 0 0;box-shadow:0 -14px 40px rgba(0,0,0,.4)}
+.snav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);border-radius:22px 22px 0 0}
+.snav.stuck{border-radius:0}
+.snav ul{display:flex;gap:.5rem;margin:0;padding:.65rem 0;list-style:none;overflow-x:auto}
+.snav a{display:block;padding:.35rem .95rem;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font:500 .95rem var(--body);white-space:nowrap}
+.snav a:hover{background:var(--chip)}
+.snav a[aria-current="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.snav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.caret{display:inline-block;width:.09em;height:.85em;margin-left:.08em;vertical-align:-.08em;background:#7FC4E8;animation:blink 1.05s steps(1) infinite}
+.caret.typing{animation:none}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="hero">
-    <h1>Dennis Tomak</h1>
+<div class="bg" aria-hidden="true"><canvas id="net"></canvas></div>
+<header class="hero">
+  <div class="wrap">
+    <h1 id="name"><span class="sr">Dennis Tomak</span><span class="typed" aria-hidden="true">Dennis Tomak</span><span class="caret" aria-hidden="true"></span></h1>
+<script>
+(function(){
+  var t=document.querySelector('#name .typed'),c=document.querySelector('#name .caret');
+  if(!t||!c||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var full=t.textContent,i=0;
+  t.textContent='';c.classList.add('typing');
+  function step(){
+    if(i<full.length){t.textContent=full.slice(0,++i);setTimeout(step,70+Math.random()*80);}
+    else c.classList.remove('typing');
+  }
+  setTimeout(step,500);
+})();
+</script>
     <p class="lede">Computer science student at the University of Illinois Urbana-Champaign. I build full-stack apps, data pipelines, and faster algorithms.</p>
     <ul class="links">
       <li><a href="mailto:dennistomak@gmail.com">dennistomak@gmail.com</a></li>
       <li><a href="https://linkedin.com/in/dennistomak">LinkedIn</a></li>
       <li><a href="https://github.com/dt10010011">GitHub</a></li>
     </ul>
-    <svg class="ridge" id="ridge" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
-  </header>
+  </div>
+</header>
+<div class="sheet">
+<nav class="snav" id="snav" aria-label="Page sections"><div class="wrap"><ul>
+  <li><a href="#experience">Experience</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#education">Education</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul></div></nav>
+<div class="wrap">
 
   <main>
     <section id="experience">
-      <h2>Experience</h2>
+      <h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>Experience</h2>
       <div class="item">
         <div class="when">June–August 2024</div>
         <div>
@@ -135,7 +179,7 @@ dialog .close{position:sticky;top:0;float:right;font:600 .9rem var(--body);backg
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Projects</h2>
       <div class="item">
         <div class="when">MySQL web application</div>
         <div>
@@ -174,7 +218,7 @@ dialog .close{position:sticky;top:0;float:right;font:600 .9rem var(--body);backg
     </section>
 
     <section id="skills">
-      <h2>Skills</h2>
+      <h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Skills</h2>
       <dl class="skills">
         <dt>Languages</dt><dd>C, C++, C#, Java, Python, JavaScript, HTML/CSS, SQL, NoSQL, Bash, PowerShell</dd>
         <dt>Frameworks</dt><dd>React, Node.js, Express.js, Django, Jinja, REST</dd>
@@ -184,7 +228,7 @@ dialog .close{position:sticky;top:0;float:right;font:600 .9rem var(--body);backg
     </section>
 
     <section id="education">
-      <h2>Education</h2>
+      <h2><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>Education</h2>
       <div class="item">
         <div class="when">2026–2027</div>
         <div><h3>MS in Computer Science</h3><p class="where">University of Illinois Urbana-Champaign · GPA 3.88</p></div>
@@ -196,9 +240,10 @@ dialog .close{position:sticky;top:0;float:right;font:600 .9rem var(--body);backg
     </section>
   </main>
 
-  <footer>
+  <footer id="contact">
     <a href="mailto:dennistomak@gmail.com">Email me</a> to talk about roles, research, or projects.
   </footer>
+</div>
 </div>
 <dialog id="posterDlg" aria-label="Research poster: Shifting Ice, An Analysis of Fractal Dimension in Arctic Surfaces">
   <button class="close" type="button" id="posterClose">Close</button>
@@ -214,17 +259,65 @@ dialog .close{position:sticky;top:0;float:right;font:600 .9rem var(--body);backg
 </script>
 <script>
 (function(){
-  var svg=document.getElementById('ridge'),W=1200,H=300,n=24,out='';
-  for(var i=0;i<n;i++){
-    var y0=70+i*9,pts=[];
-    for(var x=0;x<=W;x+=8){
-      var env=Math.pow(Math.sin(Math.PI*x/W),1.5);
-      var v=Math.sin(x*0.011+i*0.35)*14+Math.sin(x*0.027+i*0.9)*8+Math.sin(x*0.061+i*1.7)*4;
-      pts.push(x+','+(y0-env*(38+v*1.2)).toFixed(1));
-    }
-    out+='<polygon points="0,'+H+' '+pts.join(' ')+' '+W+','+H+'" fill="var(--bg)" stroke="var(--line)" stroke-width="1.2"/>';
+  var cv=document.getElementById('net'),ctx=cv.getContext('2d'),hero=document.querySelector('header.hero');
+  var dpr=Math.min(window.devicePixelRatio||1,2),W=0,H=0,P=[],mouse={x:-9999,y:-9999},running=false;
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function size(){
+    W=window.innerWidth;H=window.innerHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(Math.min(90,W*H/16000));
+    while(P.length<n)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.3+.9});
+    P.length=n;
   }
-  svg.innerHTML=out;
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    var L=Math.min(150,Math.max(100,W/9)),M=L*1.4,i,j,a,b,dx,dy,d,pulse;
+    for(i=0;i<P.length;i++){
+      a=P[i];
+      if(!still){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1;}
+      for(j=i+1;j<P.length;j++){
+        b=P[j];dx=a.x-b.x;dy=a.y-b.y;d=dx*dx+dy*dy;
+        if(d<L*L){ctx.strokeStyle='rgba(127,196,232,'+(0.42*(1-Math.sqrt(d)/L)).toFixed(3)+')';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+      }
+      dx=a.x-mouse.x;dy=a.y-mouse.y;d=dx*dx+dy*dy;
+      if(d<M*M){ctx.strokeStyle='rgba(190,235,255,'+(0.8*(1-Math.sqrt(d)/M)).toFixed(3)+')';ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}
+      pulse=(i%7===0&&!still)?Math.sin((t||0)/350+i)*0.9:0;
+      ctx.fillStyle=i%7===0?'#d6f1ff':'#8fd0ee';
+      ctx.beginPath();ctx.arc(a.x,a.y,Math.max(.6,a.r+pulse),0,6.2832);ctx.fill();
+    }
+  }
+  function loop(t){if(!running)return;draw(t);requestAnimationFrame(loop);}
+  function start(){if(!running&&!still){running=true;requestAnimationFrame(loop);}}
+  window.addEventListener('resize',function(){size();if(still)draw(0);});
+  window.addEventListener('pointermove',function(e){mouse.x=e.clientX;mouse.y=e.clientY;});
+  document.addEventListener('pointerleave',function(){mouse.x=mouse.y=-9999;});
+  size();draw(0);
+  if('IntersectionObserver' in window&&hero){
+    new IntersectionObserver(function(es){if(es[0].isIntersecting)start();else running=false;}).observe(hero);
+  }else start();
+})();
+</script>
+<script>
+(function(){
+  var nav=document.getElementById('snav'),sheet=document.querySelector('.sheet'),
+      links=[].slice.call(nav.querySelectorAll('a')),ticking=false,pinned=-1;
+  var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function update(){
+    ticking=false;
+    nav.classList.toggle('stuck',sheet.getBoundingClientRect().top<=0);
+    var active=-1,i,atEnd=(window.innerHeight+window.scrollY)>=document.documentElement.scrollHeight-4,
+        line=atEnd?window.innerHeight*0.55:140;
+    for(i=0;i<targets.length;i++){if(targets[i]&&targets[i].getBoundingClientRect().top<=line)active=i;}
+    if(pinned>=0)active=pinned;
+    links.forEach(function(a,k){if(k===active)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+  links.forEach(function(a,k){a.addEventListener('click',function(){pinned=k;update();});});
+  ['wheel','touchstart','keydown','mousedown'].forEach(function(ev){
+    window.addEventListener(ev,function(){if(pinned>=0){pinned=-1;onScroll();}},{passive:true});
+  });
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  update();
 })();
 </script>
 </body>
