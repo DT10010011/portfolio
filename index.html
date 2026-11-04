@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dennis Tomak</title>
+<meta name="description" content="Dennis Tomak: computer science student at the University of Illinois Urbana-Champaign. Backend, data, and systems.">
+<link rel="canonical" href="https://dennistomak.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dennistomak.com/">
+<meta property="og:title" content="Dennis Tomak">
+<meta property="og:description" content="Computer science student at the University of Illinois Urbana-Champaign. Backend, data, and systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0EB; --ink:#17211C; --muted:#56635C; --line:#B9C4BC; --accent:#1F5F8B; --chip:#DFE5DF;
+  --display:"Bricolage Grotesque","Helvetica Neue",Arial,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0E1618;--ink:#DDE7E4;--muted:#93A39E;--line:#2C3D40;--accent:#7FC4E8;--chip:#17262A;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0E1618;--ink:#DDE7E4;--muted:#93A39E;--line:#2C3D40;--accent:#7FC4E8;--chip:#17262A;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:860px;margin:0 auto;padding:0 1.5rem}
+header.hero{padding-top:clamp(3rem,10vw,6rem)}
+h1{font:800 clamp(2.8rem,9vw,5.5rem)/0.95 var(--display);letter-spacing:-0.03em;margin:0 0 1.25rem}
+.lede{font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.45;max-width:36em;margin:0 0 1.5rem}
+.links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:0;padding:0;list-style:none;font-weight:500}
+.ridge{display:block;width:100%;height:clamp(130px,24vw,230px);margin-top:2.5rem}
+main section{padding:3rem 0 .5rem;border-top:1px solid var(--line)}
+main section:first-of-type{border-top:0;padding-top:1.5rem}
+h2{font:700 1.6rem/1.2 var(--display);letter-spacing:-0.01em;margin:0 0 1.75rem}
+h3{font:600 1.15rem/1.3 var(--display);margin:0}
+.item{display:grid;grid-template-columns:10.5rem 1fr;gap:.25rem 2rem;margin-bottom:2.25rem}
+.when{color:var(--muted);font-size:.95rem;padding-top:.2rem}
+.where{color:var(--muted);margin:.15rem 0 .6rem}
+ul.pts{margin:0;padding-left:1.1rem}
+ul.pts li{margin-bottom:.45rem;max-width:42em}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.75rem 0 0;padding:0;list-style:none}
+.tags li{background:var(--chip);border-radius:4px;padding:.15rem .6rem;font-size:.9rem}
+.skills{display:grid;grid-template-columns:10.5rem 1fr;gap:.6rem 2rem;margin:0 0 2.25rem}
+.skills dt{color:var(--muted)}
+.skills dd{margin:0}
+footer{margin-top:3rem;padding:2rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+@media (max-width:640px){
+  .item,.skills{grid-template-columns:1fr;gap:.15rem}
+  .skills dd{margin-bottom:.6rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <h1>Dennis Tomak</h1>
+    <p class="lede">Computer science student at the University of Illinois Urbana-Champaign. I build full-stack apps, data pipelines, and faster algorithms.</p>
+    <ul class="links">
+      <li><a href="mailto:dennistomak@gmail.com">dennistomak@gmail.com</a></li>
+      <li><a href="https://linkedin.com/in/dennistomak">LinkedIn</a></li>
+      <li><a href="https://github.com/dt10010011">GitHub</a></li>
+    </ul>
+    <svg class="ridge" id="ridge" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+  </header>
+
+  <main>
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="item">
+        <div class="when">June–August 2024</div>
+        <div>
+          <h3>Researcher</h3>
+          <p class="where">National Center for Supercomputing Applications, Urbana, IL</p>
+          <ul class="pts">
+            <li>Optimized a fractal-dimension box-counting algorithm for 2-meter ArcticDEM heightmaps, replacing explicit 3D traversal with O(XY) computation by deriving vertical box counts directly from pixel elevation.</li>
+            <li>Applied the method to satellite-derived terrain data with about 25 million elevation samples per 10 km × 10 km region.</li>
+            <li>Presented findings and next steps at the Illini Union’s Research Symposium.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="item">
+        <div class="when">June 2020–August 2022</div>
+        <div>
+          <h3>Photo Booth Administrator</h3>
+          <p class="where">I Love Photo Booth, Inc., Palatine, IL</p>
+          <ul class="pts">
+            <li>Supported 1000+ clients at social and corporate events, keeping equipment reliable and customers happy.</li>
+            <li>Configured and managed legacy software to keep system components communicating reliably.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="item">
+        <div class="when">MySQL web application</div>
+        <div>
+          <h3>Pick Your Processor</h3>
+          <ul class="pts">
+            <li>Co-developed a full-stack app for exploring billions of possible PC processor configurations.</li>
+            <li>Sped up critical client-side operations by 90% through column indexing and code refactoring.</li>
+            <li>Added IP address whitelisting to limit access to authorized network endpoints.</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>MySQL</li><li>Django</li><li>Jinja</li><li>HTML</li><li>PHP</li></ul>
+        </div>
+      </div>
+      <div class="item">
+        <div class="when">Mobile app, Agile team of 4</div>
+        <div>
+          <h3>Receipt and Warranty Tracker</h3>
+          <ul class="pts">
+            <li>One of two backend developers; led PostgreSQL setup and built REST APIs for authenticated receipt, warranty, and user-data management.</li>
+            <li>Added AI-powered receipt processing with Tesseract.js and Google Gemini that extracts merchant, date, and purchase amount from uploaded images.</li>
+            <li>Secured accounts and API access with bcrypt password hashing, JWT authentication, and session management.</li>
+          </ul>
+          <ul class="tags"><li>React Native</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Gemini</li></ul>
+        </div>
+      </div>
+      <div class="item">
+        <div class="when">Machine learning</div>
+        <div>
+          <h3>Spotify Song Recommender</h3>
+          <ul class="pts">
+            <li>Built a content-based recommendation pipeline over 81,344 songs, using normalized audio-feature vectors and cosine-distance KNN to find similar tracks (0.988 average intra-result similarity).</li>
+            <li>Added genre-aware ranking that raised the genre match rate of results from 8% to 66% while holding average query-result similarity at 0.991.</li>
+          </ul>
+          <ul class="tags"><li>Python</li><li>pandas</li><li>NumPy</li><li>scikit-learn</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>C, C++, C#, Java, Python, JavaScript, HTML/CSS, SQL, NoSQL, Bash, PowerShell</dd>
+        <dt>Frameworks</dt><dd>React, Node.js, Express.js, Django, Jinja, REST</dd>
+        <dt>Platforms</dt><dd>Linux, Unix, Windows, GCP, Firebase</dd>
+        <dt>Tools</dt><dd>Git, GDB</dd>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="item">
+        <div class="when">2026–2027</div>
+        <div><h3>MS in Computer Science</h3><p class="where">University of Illinois Urbana-Champaign · GPA 3.88</p></div>
+      </div>
+      <div class="item">
+        <div class="when">2022–2026</div>
+        <div><h3>BS in Computer Science</h3><p class="where">University of Illinois Urbana-Champaign · GPA 3.92</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="mailto:dennistomak@gmail.com">Email me</a> to talk about roles, research, or projects.
+  </footer>
+</div>
+<script>
+(function(){
+  var svg=document.getElementById('ridge'),W=1200,H=300,n=24,out='';
+  for(var i=0;i<n;i++){
+    var y0=70+i*9,pts=[];
+    for(var x=0;x<=W;x+=8){
+      var env=Math.pow(Math.sin(Math.PI*x/W),1.5);
+      var v=Math.sin(x*0.011+i*0.35)*14+Math.sin(x*0.027+i*0.9)*8+Math.sin(x*0.061+i*1.7)*4;
+      pts.push(x+','+(y0-env*(38+v*1.2)).toFixed(1));
+    }
+    out+='<polygon points="0,'+H+' '+pts.join(' ')+' '+W+','+H+'" fill="var(--bg)" stroke="var(--line)" stroke-width="1.2"/>';
+  }
+  svg.innerHTML=out;
+})();
+</script>
+</body>
+</html>
